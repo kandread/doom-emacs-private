@@ -5,14 +5,14 @@
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
-      ;debugger          ; FIXME stepping through code, to help you add bugs
+       ;debugger          ; FIXME stepping through code, to help you add bugs
        eval              ; run code, run (also, repls)
        (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        (lookup           ; helps you navigate your code and documentation
         +devdocs         ; ...on devdocs.io online
         +docsets)        ; ...or in Dash docsets locally
-       services          ; TODO managing external services & code builders
+       ;services          ; TODO managing external services & code builders
        snippets          ; my elves. They type so I don't have to
        spellcheck        ; tasing you for misspelling mispelling
        syntax-checker    ; tasing you for every semicolon you forget
@@ -21,8 +21,6 @@
 
        :completion
        company           ; the ultimate code completion backend
-      ;helm              ; the *other* search engine for love and life
-      ;ido               ; the other *other* search engine...
        ivy               ; a search engine for love and life
 
        :ui
@@ -33,14 +31,15 @@
        evil-goggles      ; display visual hints when editing in evil
        hl-todo           ; highlight TODO/FIXME/NOTE tags
        nav-flash         ; blink the current line after jumping
-      ;posframe          ; use child frames where possible (Emacs 26+ only)
-      ;tabbar            ; FIXME an (incomplete) tab bar for Emacs
-      ;unicode           ; extended unicode support for various languages
+       ;posframe          ; use child frames where possible (Emacs 26+ only)
+       ;tabbar            ; FIXME an (incomplete) tab bar for Emacs
+       unicode           ; extended unicode support for various languages
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
 
        :tools
        dired             ; making dired pretty [functional]
+       ;ein               ; tame Jupyter notebooks with emacs
        electric-indent   ; smarter, keyword-based electric-indent
        eshell            ; a consistent, cross-platform shell (WIP)
        gist              ; interacting with github gists
@@ -52,7 +51,7 @@
        neotree           ; a project drawer, like NERDTree for vim
        password-store    ; password manager for nerds
        pdf               ; pdf enhancements
-      ;rgb               ; creating color strings
+       ;rgb               ; creating color strings
        rotate-text       ; cycle region at point between text candidates
        term              ; terminals in Emacs
        ;tmux              ; an API for interacting with tmux
@@ -65,11 +64,11 @@
        ;clojure           ; java with a lisp
        ;csharp            ; unity, .NET, and mono shenanigans
        data              ; config/data formats
-      ;erlang            ; an elegant language for a more civilized age
+       ;erlang            ; an elegant language for a more civilized age
        ;elixir            ; erlang done right
        ;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
-       ess               ; emacs speaks statistics
+       ;ess               ; emacs speaks statistics
        ;go                ; the hipster dialect
        ;(haskell +intero) ; a language that's lazier than I am
        ;hy                ; readability of scheme w/ speed of python
@@ -107,13 +106,13 @@
        ;; toward a specific purpose. They may have additional dependencies and
        ;; should be loaded late.
        :app
-       email    ; emacs as an email client
+       email             ; emacs as an email client
       ;irc               ; how neckbeards socialize
       ;(rss +org)        ; emacs as an RSS reader
       ;twitter           ; twitter client https://twitter.com/vnought
-       (write            ; emacs as a word processor (latex + org + markdown)
-        +wordnut         ; wordnet (wn) search
-        +langtool)       ; a proofreader (grammar/style check) for Emacs
+      ;(write            ; emacs as a word processor (latex + org + markdown)
+      ; +wordnut         ; wordnet (wn) search
+      ; +langtool)       ; a proofreader (grammar/style check) for Emacs
 
        :config
        ;; The default module set reasonable defaults for Emacs. It also provides
@@ -121,5 +120,5 @@
        ;; and additional ex commands for evil-mode. Use it as a reference for
        ;; your own modules.
        (default +bindings +snippets +evil-commands)
-       (private +bindings +gtd))
+       (private +xdg))
 
