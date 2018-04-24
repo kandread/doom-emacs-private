@@ -26,3 +26,5 @@
 
 ;; load bindings for specific modes
 (load! bindings/mu4e) ; email
+(load! bindings/latex) ; latex
+
