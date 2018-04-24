@@ -29,4 +29,4 @@
 (defun +kandread/restore-buffer-after-mu4e (func &rest args)
   "Fix issue with fallback buffer when quitting mu4e."
   (apply func args)
-  (previous-buffer))
+  (evil-switch-to-windows-last-buffer))
