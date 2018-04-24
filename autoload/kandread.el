@@ -21,10 +21,12 @@
 
 ;;;###autoload
 (defun +kandread/view-in-mu4e-workspace (func &rest args)
+  "Advice function to view messages and queries in email workspace."
   (persp-switch "*mu4e*")
   (apply func args))
 
 ;;;###autoload
 (defun +kandread/restore-buffer-after-mu4e (func &rest args)
+  "Fix issue with fallback buffer when quitting mu4e."
   (apply func args)
   (previous-buffer))
