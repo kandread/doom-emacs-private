@@ -11,7 +11,7 @@
   (progn
     (let ((TeX-save-query nil))
       (TeX-save-document (TeX-master-file)))
-    (TeX-command latex-build-command 'TeX-master-file -1)))
+    (TeX-command TeX-command-default 'TeX-master-file -1)))
 
 ;; auctex keybindings
 (map! (:map (LaTeX-mode-map)
@@ -30,4 +30,5 @@
             :n "i" #'+latex/font-italic
             :n "n" #'+latex/font-normal)
           ;; build commands
+          :n "b" #'+latex/build
           :n "a" #'TeX-command-run-all))
