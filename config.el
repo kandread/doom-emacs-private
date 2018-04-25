@@ -29,6 +29,12 @@
 (after! ivy
   (setq ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-cd-selected))
 
+;; load packages related to org-mode
+(def-package! org-pomodoro
+  :commands org-pomodoro)
+(def-package! counsel-org-clock
+  :commands (counsel-org-clock-context counsel-org-clock-history))
+
 ;; configure email
 (after! mu4e
   ;; load package to be able to capture emails for GTD
