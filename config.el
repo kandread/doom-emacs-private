@@ -47,11 +47,11 @@
   (advice-add 'mu4e-headers-search :around #'+kandread/view-in-mu4e-workspace)
   ;; instead of displaying the fallback buffer (dashboard) after quitting mu4e, switch to last active buffer in workspace
   (advice-add '+email|kill-mu4e :around #'+kandread/restore-buffer-after-mu4e)
-  ;; attach files to messages by marking files in dired buffer
+  ;; attach files to messages by marking them in dired buffer
   (require 'gnus-dired)
   (defalias 'gnus-dired-mail-buffers '+kandread/gnus-dired-mail-buffers)
   (setq gnus-dired-mail-mode 'mu4e-user-agent)
-  (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
+  (add-hook! 'dired-mode-hook #'turn-on-gnus-dired-mode)
   ;; configure mu4e options
   (setq mu4e-confirm-quit nil ; quit without asking
         mu4e-attachment-dir "~/Downloads"
