@@ -18,6 +18,11 @@
  (:after dired
    (:map dired-mode-map :n "C-o" #'+kandread/open-externally))
 
+ (:after org
+   (:map org-mode-map "C-c o" #'org-pomodoro))
+ (:after org-agenda
+   (:map org-agenda-mode-map "C-c o" #'org-pomodoro))
+
  )
 
 ;; set initial state to emacs for org-agenda
