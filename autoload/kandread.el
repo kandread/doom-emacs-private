@@ -30,3 +30,15 @@
   "Fix issue with fallback buffer when quitting mu4e."
   (apply func args)
   (evil-switch-to-windows-last-buffer))
+
+;;;###autoload
+(defun +kandread/gnus-dired-mail-buffers ()
+  "Return a list of active message buffers."
+  (let (buffers)
+    (save-current-buffer
+      (dolist (buffer (buffer-list t))
+        (set-buffer buffer)
+        (when (and (derived-mode-p 'message-mode)
+                (null message-sent-message-via))
+          (push (buffer-name buffer) buffers))))
+    (nreverse buffers)))

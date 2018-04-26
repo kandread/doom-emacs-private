@@ -17,7 +17,8 @@
 
 ;; exclude from recent file list
 (after! recentf
-  (add-to-list 'recentf-exclude "Mail/jpl"))
+  (add-to-list 'recentf-exclude "Mail/jpl")
+  (add-to-list 'recentf-exclude "/var"))
 
 ;; don't show recent files in switch-buffer
 (setq ivy-use-virtual-buffers nil)
@@ -46,6 +47,12 @@
   (advice-add 'mu4e-headers-search :around #'+kandread/view-in-mu4e-workspace)
   ;; instead of displaying the fallback buffer (dashboard) after quitting mu4e, switch to last active buffer in workspace
   (advice-add '+email|kill-mu4e :around #'+kandread/restore-buffer-after-mu4e)
+  ;; attach files to messages by marking files in dired buffer
+  (require 'gnus-dired)
+  (defalias 'gnus-dired-mail-buffers '+kandread/gnus-dired-mail-buffers)
+  (setq gnus-dired-mail-mode 'mu4e-user-agent)
+  (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
+  ;; configure mu4e options
   (setq mu4e-confirm-quit nil ; quit without asking
         mu4e-attachment-dir "~/Downloads"
         mu4e-maildir (expand-file-name "~/Mail/jpl")
@@ -61,4 +68,7 @@
 	smtpmail-stream-type 'starttls
 	smtpmail-default-smtp-server "smtp.jpl.nasa.gov"
 	smtpmail-smtp-server "smtp.jpl.nasa.gov"
-	smtpmail-smtp-service 587))
+	smtpmail-smtp-service 587)
+  ;; add custom actions for messages
+  (add-to-list 'mu4e-view-actions
+	       '("View in browser" . mu4e-action-view-in-browser) t))
