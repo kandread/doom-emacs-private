@@ -23,9 +23,6 @@
 ;; don't show recent files in switch-buffer
 (setq ivy-use-virtual-buffers nil)
 
-;; disable magithub (slows down Emacs startup)
-(def-package-hook! magithub :disable)
-
 ;; change to directory with ivy even if name does not match exactly
 (after! ivy
   (setq ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-cd-selected))
@@ -72,3 +69,4 @@
   ;; add custom actions for messages
   (add-to-list 'mu4e-view-actions
 	       '("View in browser" . mu4e-action-view-in-browser) t))
+

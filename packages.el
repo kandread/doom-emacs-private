@@ -4,4 +4,3 @@
 (package! magithub :ignore t)
 (package! org-pomodoro)
 (package! counsel-org-clock)
-
