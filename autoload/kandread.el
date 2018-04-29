@@ -42,3 +42,8 @@
                 (null message-sent-message-via))
           (push (buffer-name buffer) buffers))))
     (nreverse buffers)))
+
+;;;###autoload
+(defun +kandread/turn-off-visual-line-mode ()
+  "Turn off line wrapping."
+  (visual-line-mode -1))

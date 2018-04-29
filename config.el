@@ -49,6 +49,8 @@
   (defalias 'gnus-dired-mail-buffers '+kandread/gnus-dired-mail-buffers)
   (setq gnus-dired-mail-mode 'mu4e-user-agent)
   (add-hook! 'dired-mode-hook #'turn-on-gnus-dired-mode)
+  ;; disable line wrapping when viewing headers
+  (add-hook! 'mu4e-headers-mode-hook #'+kandread/turn-off-visual-line-mode)
   ;; configure mu4e options
   (setq mu4e-confirm-quit nil ; quit without asking
         mu4e-attachment-dir "~/Downloads"
