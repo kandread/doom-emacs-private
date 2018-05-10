@@ -8,6 +8,8 @@
 
   (map!
    (:map (mu4e-headers-mode-map mu4e-view-mode-map)
-     "c" #'org-mu4e-store-and-capture)))
+     "c" #'org-mu4e-store-and-capture)
+   (:map (mu4e-view-mode-map)
+     "G" #'ace-link-mu4e)))
 
 

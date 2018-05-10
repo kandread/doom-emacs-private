@@ -36,6 +36,10 @@
 (def-package! counsel-org-clock
   :commands (counsel-org-clock-context counsel-org-clock-history))
 
+;; expose additional ace-link commands
+(def-package! ace-link
+  :commands (ace-link-mu4e))
+
 ;; configure email
 (after! mu4e
   ;; load package to be able to capture emails for GTD
