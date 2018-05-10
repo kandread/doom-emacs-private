@@ -15,6 +15,9 @@
 ;; use relative line numbers
 (setq doom-line-numbers-style 'relative)
 
+;; set theme
+(setq doom-theme 'doom-nord)
+
 ;; exclude from recent file list
 (after! recentf
   (add-to-list 'recentf-exclude "Mail/jpl")
